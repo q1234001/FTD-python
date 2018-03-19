@@ -3,7 +3,7 @@ import openpyxl
 
 def create():
     workbook = openpyxl.Workbook()
-    sheet_na = ['hosts', 'networkgroups', 'networks', 'portobjectgroups', 'protocolportobjects', 'ranges']
+    sheet_na = ['hosts', 'networks', 'protocolportobjects', 'ranges', 'De']
     
     for na in sheet_na:
         workbook.create_sheet(str(na))

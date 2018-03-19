@@ -7,9 +7,9 @@ import sys
 import requests
 
 def a(obj): 
-    server = "https://10.255.63.14"
+    server = "https://10.1.81.53"
      
-    username = "admin"
+    username = "shawn"
     if len(sys.argv) > 1:
         username = sys.argv[1]
     password = "1qazXSW@"
@@ -55,22 +55,42 @@ def a(obj):
         #r = requests.get(url, headers=headers, verify='/path/to/ssl_certificate')
         status_code = r.status_code
         resp = r.text
-        return r
+       
         if (status_code == 200):
             print("GET successful. Response data --> ")
             json_resp = json.loads(resp)
             print(json.dumps(json_resp,sort_keys=True,indent=4, separators=(',', ': ')))
+            return r
         else:
             r.raise_for_status()
+            error ="Error occurred in GET --> "+resp
             print("Error occurred in GET --> "+resp)
+            return error
     except requests.exceptions.HTTPError as err:
         print ("Error in connection --> "+str(err)) 
     finally:
         if r : r.close()
 
 def set_field():
-    field_host = ["name","type","value","overridable","description","id"]
-    return field_host 
+    
+    field = ["name","type","value","overridable","description","id"]
+    
+  
+    return field
+
+def set_field_protocol():
+
+    field = ['id', 'name', 'type', 'protocol', 'port']
+  
+    return field 
+
+
+
+def set_field_ranges():
+
+    field = ["name", "type", "value", "description", "id"]
+  
+    return field 
  
 
  
